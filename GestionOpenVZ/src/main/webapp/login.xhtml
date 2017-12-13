@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:outputStylesheet library="css" name="style-login-button.css" />
+	<h:outputStylesheet library="css" name="animate-custom.css" />
+	<h:outputStylesheet library="css" name="style-login.css" />
+</h:head>
+<body>
+	<h:form prependId="false">
+
+		<div class="container">
+			<!-- Codrops top bar -->
+			<div class="codrops-top">
+
+				<div class="clr"></div>
+			</div>
+			<!--/ Codrops top bar -->
+			<br /> <br />
+
+
+
+			<div id="container_demo">
+				<!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+				<a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor"
+					id="tologin"></a>
+				<div id="wrapper">
+
+
+					<p:fieldset id="general"
+						style="border:none;background-color: transparent;">
+
+
+						<div id="login" class="animate form">
+							<h:graphicImage library="images" name="Home-icon.png"
+								height="50px" width="50px" style="float:left;" />
+							<div style="padding-right: 45px">
+								<h1>Log in</h1>
+							</div>
+							<p:messages autoUpdate="true" />
+
+
+							<table>
+								<tr>
+									<td><p:outputLabel for="j_username" styleClass="uname"
+											value="Your username" /> <p:inputText id="j_username"
+											name="username" required="true"
+											requiredMessage="Username Required" placeholder="myusername "
+											value="#{userController.user.login}" style="width:350px;" />
+									</td>
+
+								</tr>
+								<tr>
+									<td><p:outputLabel for="j_password" styleClass="youpasswd"
+											value="Your password" /> <p:password id="j_password"
+											name="password" required="true"
+											requiredMessage="Password Required"
+											placeholder="eg. X8df!90EO" style="width:350px;"
+											value="#{userController.user.password}" /></td>
+								</tr>
+							</table>
+							<br />
+							<p class="login button">
+								<p:commandButton actionListener="#{userController.doLogin()}"
+									value="Login" ajax="false"
+									style="width: 25%;
+	cursor: pointer;
+	height:50px;
+	background: rgb(61, 157, 179);
+	
+	font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+	color: #fff;
+	font-size: 20px;
+	border: 1px solid rgb(28, 108, 122);
+	margin-bottom: 10px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px
+		0px 3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	-moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px
+		3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px
+		rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;">
+
+								</p:commandButton>
+
+							</p>
+
+							<p class="change_link">
+
+								<h:commandLink styleClass="to_register" value="Join Us"
+									action="registration" immediate="true" />
+
+							</p>
+
+						</div>
+
+					</p:fieldset>
+
+
+				</div>
+			</div>
+
+		</div>
+	</h:form>
+</body>
+</html>

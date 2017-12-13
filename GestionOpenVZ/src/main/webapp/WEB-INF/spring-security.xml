@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http auto-config="true">
+		<intercept-url pattern="/agent/*" access="ROLE_AGENT" />
+		<intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
+
+		<form-login login-processing-url="/j_spring_security_check"
+			login-page="/login.xhtml"
+			authentication-success-handler-ref="myAuthenticationSuccessHandler"
+			authentication-failure-url="/login.xhtml?status=error" />
+		<access-denied-handler error-page="/login.xhtml" />
+		
+		<logout logout-url="/logout" invalidate-session="true" delete-cookies="true" />
+	</http>
+	<beans:bean id="myAuthenticationSuccessHandler" class="com.security.MyAuthenticationSuccessHandler" />
+	<authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service data-source-ref="myDataSource"
+				users-by-username-query="select login, pwd , enabled from g_user where login = ?"
+				authorities-by-username-query="select u.login, r.code from g_user u, g_role r where u.id_user = r.id_user and u.login = ? " />
+		</authentication-provider>
+	</authentication-manager>
+
+
+
+</beans:beans>

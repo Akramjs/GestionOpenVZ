@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<style type="text/css">
+.ui-widget {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 0.9em !important;
+}
+
+.footer {
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	height: 40px;
+	position: fixed;
+}
+
+.header {
+	left: 0;
+	top: 0;
+	height: 30px;
+	width: 100%;
+	position: fixed;
+	z-index: 20000;
+}
+
+
+
+#centre {
+margin-right:130px;
+	display: block;
+	overflow: auto;
+margin-left:130px;
+	
+	
+}
+
+
+#container {
+	position: relative;
+	top: 75px;
+	overflow: visible;
+}
+</style>
+</h:head>
+
+<h:body>
+	<div class="header">
+		<ui:insert name="header">
+			<ui:include src="/template/header.xhtml">
+			</ui:include>
+		</ui:insert>
+	</div>
+	<div id="container" style="width: 100%;">
+
+		
+		<div id="centre">
+			<ui:insert name="content">
+				<ui:include src="/template/content.xhtml" />
+			</ui:insert>
+		</div>
+
+	</div>
+	<div class="footer"></div>
+
+
+
+
+</h:body>
+</html>

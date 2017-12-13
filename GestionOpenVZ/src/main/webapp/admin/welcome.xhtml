@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template/layout.xhtml">
+
+	<ui:define name="content">
+		<br />
+		<br />
+		<br />
+		<h:form>
+			<p:fieldset>
+				<br />
+				<br />
+				<br />
+				<table>
+					<tr>
+						<td><h:outputText value="Login : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{profileController.user.login}" style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="First Name : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{profileController.currentProfile.firstName}"
+								style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Last Name : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{profileController.currentProfile.lastName}"
+								style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Email: " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								id="email" required="true" label="email" style="width:220px;"
+								requiredMessage="Please enter your email address."
+								validatorMessage="Invalid email format"
+								value="#{profileController.currentProfile.email}">
+
+								<f:validateRegex
+									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+							</p:inputText></td>
+					</tr>
+
+					<tr>
+						<td><h:outputText value="Country : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{profileController.currentProfile.country}"
+								style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="City : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{profileController.currentProfile.city}"
+								style="width:220px;" /></td>
+					</tr>
+				</table>
+				<br />
+				<br />
+				<br />
+				<p:spacer height="0px" width="350px" />
+				<p:commandButton action="#{profileController.updateProfile()}"
+					value="Update">
+				</p:commandButton>
+
+				<br />
+				<br />
+				<br />
+			</p:fieldset>
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
+
+
+

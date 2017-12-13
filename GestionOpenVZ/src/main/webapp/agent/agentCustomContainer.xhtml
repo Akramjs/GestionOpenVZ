@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template/layout.xhtml">
+
+	<ui:define name="content">
+
+		<br />
+		<br />
+		<br />
+		<h:form id="customContainerForm">
+			<p:growl id="messages" globalOnly="true" />
+			<p:fieldset>
+				<div class="oH2" style="width: 1030px !important">My Custom
+					Containers</div>
+
+				<br />
+
+				<p:dataTable id="CustomContainers"
+					emptyMessage="No Custom Containers Available "
+					value="#{customContainerController.dataModelUserCustomContainer}"
+					var="customContainer" rowKey="#{customContainer.idCustomContainer}">
+					<p:column headerText="Template Name" width="150">
+						<h:outputLabel value="#{customContainer.templateName}" />
+					</p:column>
+					<p:column headerText="Path">
+						<h:outputLabel value="#{customContainer.path}" />
+					</p:column>
+					<p:column headerText="Validated" width="100">
+						<h:outputLabel value="#{customContainer.enabled}" />
+					</p:column>
+					<p:column headerText="State" width="100">
+						<h:outputLabel value="#{customContainer.state}" />
+					</p:column>
+					<p:column headerText="Action" width="150">
+						<p:commandButton value="Start"
+							rendered="#{customContainer.state=='Offline'}"
+							disabled="#{customContainer.enabled=='Not Yet' or customContainer.enabled=='Rejected' }"
+							action="#{customContainerController.updateCustomContainer(customContainer,'Start')}"
+							update="@form" />
+						<p:commandButton value="Stop"
+							rendered="#{customContainer.state=='Online'}"
+							action="#{customContainerController.updateCustomContainer(customContainer,'Stop')}"
+							update="@form" />
+						<p:commandButton value="Delete"
+							rendered="#{customContainer.state=='Offline' and customContainer.enabled=='Not Yet' }"
+							action="#{customContainerController.deleteCustomContainer(customContainer)}"
+							update="@form" />
+					</p:column>
+				</p:dataTable>
+			</p:fieldset>
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
+
+
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template/layout.xhtml">
+
+
+	<ui:define name="content">
+		<br />
+		<br />
+		<br />
+		<h:form>
+			<p:fieldset>
+				<br />
+				<br />
+				<br />
+				<table>
+					<tr>
+						<td><h:outputText value="Login : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{userController.user.login}" style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Password : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:password
+								id="pass1" match="pass2" value="#{userController.user.password}"
+								style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Retype : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:password
+								id="pass2" value="#{userController.user.password}"
+								style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Role : " /></td>
+						<td><p:spacer height="0px" width="100px" />
+							<p:selectOneMenu id="state" value="#{userController.roleUser}"
+								style="width:230px">
+								<f:selectItem itemLabel="Select Role" itemValue=""
+									noSelectionOption="true" />
+								<f:selectItem itemLabel="AGENT ROLE " itemValue="ROLE_AGENT" />
+								<f:selectItem itemLabel="ADMIN ROLE" itemValue="ROLE_ADMIN" />
+							</p:selectOneMenu></td>
+					</tr>
+				</table>
+				<br />
+				<br />
+				<br />
+				<p:spacer height="0px" width="350px" />
+				<p:commandButton action="#{userController.register()}"
+					value="ajouter">
+				</p:commandButton>
+
+				<br />
+				<br />
+				<br />
+			</p:fieldset>
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
+
+
+

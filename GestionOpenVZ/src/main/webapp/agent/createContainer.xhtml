@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template/layout.xhtml">
+
+	<ui:define name="content">
+
+		<br />
+		<br />
+		<br />
+		<h:form id="containerForm">
+			<p:fieldset>
+				<div class="oH2" style="width: 1030px !important">Create New
+					Container</div>
+				<br />
+				<br />
+				<br />
+				<table>
+					<tr>
+						<td><h:outputText value="ID : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{containerController.container.id}" style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="IP : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{containerController.container.ip}" style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Mark : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{containerController.container.marque}"
+								style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Ram : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{containerController.container.ram}"
+								style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Rom : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{containerController.container.rom}"
+								style="width:220px;" /></td>
+					</tr>
+
+					<tr>
+						<td><h:outputText value="State : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:selectOneMenu
+								id="state" value="#{containerController.container.state}"
+								style="width:230px">
+
+								<f:selectItem itemLabel="Select State" itemValue=""
+									noSelectionOption="true" />
+								<f:selectItem itemLabel="Online" itemValue="Online" />
+								<f:selectItem itemLabel="Offline" itemValue="Offline" />
+							</p:selectOneMenu></td>
+					</tr>
+				</table>
+				<br />
+				<br />
+				<br />
+				<p:spacer height="0px" width="310px" />
+				<p:commandButton action="#{containerController.createContainer()}"
+					value="Create" update="@form">
+				</p:commandButton>
+
+				<br />
+				<br />
+				<br />
+			</p:fieldset>
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
+
+
+

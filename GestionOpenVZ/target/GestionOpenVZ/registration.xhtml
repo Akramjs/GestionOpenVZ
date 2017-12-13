@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+
+	<h:outputStylesheet library="css" name="demo.css" />
+	<h:outputStylesheet library="css" name="style3.css" />
+	<h:outputStylesheet library="css" name="animate-custom.css" />
+	<h:outputStylesheet library="css" name="loginStyle.css" />
+
+</h:head>
+<h:body>
+
+	<h:form>
+
+		<div class="container">
+			<!-- Codrops top bar -->
+			<div class="codrops-top">
+
+				<div class="clr"></div>
+			</div>
+			<!--/ Codrops top bar -->
+			<br /> <br />
+
+
+
+			<div id="container_demo">
+				<!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+				<a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor"
+					id="tologin"></a>
+				<div id="wrapper">
+
+
+
+					<p:fieldset id="edit"
+						style="border:none;background-color: transparent;">
+
+						<div id="login" class="animate form">
+
+
+
+							<h1>Sign up</h1>
+							<p:messages autoUpdate="true" />
+
+							<table>
+								<tr>
+									<td><p:outputLabel for="usernamesignup" styleClass="uname"
+											value="Your username" /> <p:inputText id="usernamesignup"
+											name="usernamesignup" required="true"
+											value="#{userController.user.login}" placeholder="mysuperusername690"
+											style="width:370px;" requiredMessage="Username Required" />
+
+									</td>
+								</tr>
+
+								<tr>
+									<td><p:outputLabel for="pwd1" styleClass="youpasswd"
+											value="Your password" /> <p:password id="pwd1"
+											name="passwordsignup" required="true"
+											placeholder="eg. X8df!90EO" value="#{userController.user.password}"
+											style="width:370px;" match="pwd2" label="Password"
+											requiredMessage="Password Required"
+											validatorMessage="Check Your Password" /></td>
+								</tr>
+								<tr>
+									<td><p:outputLabel for="pwd2" styleClass="youpasswd"
+											value="Please confirm your password " /> <p:password
+											id="pwd2" name="passwordsignup_confirm" required="true"
+											placeholder="eg. X8df!90EO" style="width:370px;"
+											requiredMessage="Password Required " /></td>
+								</tr>
+
+							</table>
+
+							<br />
+							<p:spacer height="30px" width="0px" />
+							<p class="signin button">
+								<p:commandButton id="buto" value="Sign Up"
+									actionListener="#{userController.register()}" immediate="true"
+									style="width: 25%;
+	cursor: pointer;
+	height:50px;
+	background: rgb(61, 157, 179);
+	
+	font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+	color: #fff;
+	font-size: 20px;
+	border: 1px solid rgb(28, 108, 122);
+	margin-bottom: 10px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px
+		0px 3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	-moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px
+		3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px
+		rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear; margin-left:280px;">
+
+								</p:commandButton>
+							</p>
+							<p class="change_link">
+								Already a member ?
+								<h:commandLink styleClass="change_link" value="Sign In"
+									action="login" immediate="true" />
+
+							</p>
+
+
+
+
+						</div>
+
+					</p:fieldset>
+
+				</div>
+			</div>
+
+		</div>
+		<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+			closable="false" resizable="false" showHeader="false">
+			<p:graphicImage name="images/ajax_loader_blue_128.gif" />
+		</p:dialog>
+	</h:form>
+	<br />
+	<br />
+</h:body>
+</html>

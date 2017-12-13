@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+<h:outputStylesheet library="css" name="lef_menu.css" />
+
+<br />
+<br />
+	<p:fieldset  styleClass="customfield">
+		<h:form id="form_right">
+			<h:outputStylesheet library="css" name="image.css" />
+		<center>	<div class="oH2">
+			<b>	Account</b>
+				</div></center>
+		
+			<div align="center">
+				<p:graphicImage id="image" value="#{sess.hetImage()}" height="80"
+					width="80" cache="false" styleClass="morphing-glowing" />
+					<br />
+					<p:rating value="#{sess.currentUser.cv.rating}" style="margin-left:45px !important;" readonly="true" />
+			
+			<br />
+			<h:commandLink action="#{redirectPageUser.profile()}" styleClass="linkdeco"
+				value="View My Profile"/></div>
+				<br />
+				<p:progressBar value="20" labelTemplate="{value}% of profile" style="width:130px !important;margin-left:28px !important;" />
+				<center>
+				<h:commandLink action="/user/Portfolio" value="Add Other Experiences"  styleClass="linkdeco" />
+				</center>
+		</h:form>
+	</p:fieldset>
+	<br />
+
+</h:body>
+</html>
+

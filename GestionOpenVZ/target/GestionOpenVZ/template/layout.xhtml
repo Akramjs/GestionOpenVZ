@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	
+	<link rel="shortcut icon" href="#{resource['images/favicon2.ico']}" type="image/x-icon" />  
+	<f:loadBundle var="lan" basename="#{userBean.currentLan}" />
+	<!-- permet de déclarer une ressource qui se trouve dans le dossier css du dossier parent resources -->
+
+
+	<!-- 	<h:outputScript library="scripts" name="script.js" / -->
+	<style type="text/css">
+
+
+.footer {
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	height: 40px;
+	position: fixed;
+}
+
+.header {
+	left: 0;
+	top: 0;
+	height: 30px;
+	width: 100%;
+	position: fixed;
+	z-index: 20000;
+}
+
+#left {
+	float: left;
+	width: 240px;
+}
+
+#centre {
+padding-left:10px;
+	display:block;
+	overflow: auto;
+	padding-right:8px;
+	
+}
+
+#right {
+	float: right;
+	width: 201px;
+	+
+}
+
+#container {
+	position: relative;
+	top: 41px;
+	overflow: visible;
+}
+</style>
+</h:head>
+
+<h:body>
+	<div class="header">
+		<ui:insert name="header">
+			<ui:include src="/template/header_simpleUser.xhtml">
+			</ui:include>
+		</ui:insert>
+	</div>
+	<div id="container" style="width: 100%;">
+
+		<div id="left">
+			<ui:insert name="left">
+				<ui:include src="/template/left_user.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="right">
+			<ui:insert name="right">
+				<ui:include src="/template/right_user.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="centre">
+			<ui:insert name="content">
+				<ui:include src="/template/content.xhtml" />
+			</ui:insert>
+		</div>
+
+	</div>
+	<div class="footer"></div>
+
+
+
+</h:body>
+</html>

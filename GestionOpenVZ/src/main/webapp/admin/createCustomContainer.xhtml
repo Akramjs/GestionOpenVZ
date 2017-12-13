@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template/layout.xhtml">
+
+	<ui:define name="content">
+
+		<br />
+		<br />
+		<br />
+		<h:form>
+			<p:fieldset>
+				<div class="oH2" style="width: 1030px !important">Create New
+					Custom Container</div>
+				<br />
+				<br />
+				<br />
+				<table>
+					<tr>
+						<td><h:outputText value="Template : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{customContainerController.customContainer.templateName}"
+								style="width:220px;" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Path : " /></td>
+						<td><p:spacer height="0px" width="100px" /> <p:inputText
+								value="#{customContainerController.customContainer.path}"
+								style="width:350px;height:25px" /></td>
+					</tr>
+				</table>
+				<br />
+				<br />
+				<br />
+				<p:spacer height="0px" width="310px" />
+				<p:commandButton
+					action="#{customContainerController.createCustomContainer()}"
+					value="Create" update="@form" />
+
+				<br />
+				<br />
+				<br />
+			</p:fieldset>
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
+
+
+

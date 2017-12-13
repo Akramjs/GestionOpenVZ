@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template/layout.xhtml">
+
+	<ui:define name="content">
+
+		<br />
+		<br />
+		<br />
+		<h:form id="containerForm">
+			<p:growl id="messages" globalOnly="true" />
+			<p:fieldset>
+				<div class="oH2" style="width: 1030px !important">My
+					Containers</div>
+
+				<br />
+
+				<p:dataTable id="containers" emptyMessage="No Containers Available "
+					value="#{containerController.dataModelAllContainer}"
+					var="container" rowKey="#{container.idContainer}"
+					sortBy="#{container.state}">
+					<p:column headerText="Id">
+						<h:outputLabel value="#{container.id}" />
+					</p:column>
+					<p:column headerText="Ip">
+						<h:outputLabel value="#{container.ip}" />
+					</p:column>
+					<p:column headerText="Mark">
+						<h:outputLabel value="#{container.marque}" />
+					</p:column>
+					<p:column headerText="Ram">
+						<h:outputLabel value="#{container.ram}" />
+					</p:column>
+					<p:column headerText="Rom">
+						<h:outputLabel value="#{container.rom}" />
+					</p:column>
+					<p:column headerText="Created By">
+						<h:outputLabel value="#{container.user.login}" />
+					</p:column>
+					<p:column headerText="State">
+						<h:outputLabel value="#{container.state}" />
+					</p:column>
+					<p:column headerText="Action" width="150">
+						<p:commandButton value="Start" style="width:60px"
+							rendered="#{container.state=='Offline'}"
+							action="#{containerController.updateContainer(container,'Start')}"
+							update="@form" />
+						<p:commandButton value="Stop"
+							rendered="#{container.state=='Online'}" style="width:60px"
+							action="#{containerController.updateContainer(container,'Stop')}"
+							update="@form" />
+						<p:commandButton value="Delete"
+							rendered="#{container.state=='Offline'}" style="width:60px"
+							action="#{containerController.deleteContainer(container)}"
+							update="@form" />
+					</p:column>
+
+				</p:dataTable>
+			</p:fieldset>
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
+
+
+

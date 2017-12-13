@@ -1,0 +1,137 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<h:outputStylesheet name="css/style-default.css" />
+<f:event type="preRenderView" listener="#{profileController.init()}" />
+
+<h:body>
+	<h:form id="form_header">
+
+
+		<p:growl id="messages" />
+
+
+
+		<p:menubar>
+
+
+			<p:menuitem value="Profile" icon="ui-icon-person" immediate="true"
+				action="#{userRedirection.agentProfilePage()}"
+				rendered="#{profileController.roleUser=='ROLE_AGENT'}" />
+			<p:menuitem value="Profile" icon="ui-icon-person" immediate="true"
+				action="#{userRedirection.adminProfilePage()}"
+				rendered="#{profileController.roleUser=='ROLE_ADMIN'}" />
+			<p:submenu label="Create container" icon=" ui-icon-circlesmall-plus"
+				rendered="#{profileController.roleUser=='ROLE_AGENT'}">
+
+				<p:menuitem value="Simple Container" icon=" ui-icon-pencil"
+					immediate="true"
+					action="#{userRedirection.agentCreateContainerPage()}"
+					style="font-size: 1.2em !important;">
+				</p:menuitem>
+				<p:menuitem value="Custom Container" icon=" ui-icon-gear"
+					immediate="true"
+					action="#{userRedirection.agentCreateCustomContainerPage()}"
+					style="font-size: 1.2em !important;">
+				</p:menuitem>
+
+			</p:submenu>
+			<p:submenu label="Users" icon=" ui-icon-circlesmall-plus"
+				rendered="#{profileController.roleUser=='ROLE_ADMIN'}">
+
+				<p:menuitem value="Create User" icon=" ui-icon-pencil"
+					immediate="true" action="#{userRedirection.adminCreateUserPage()}"
+					style="font-size: 1.2em !important;">
+				</p:menuitem>
+				<p:menuitem value="All users" icon=" ui-icon-gear" immediate="true"
+					action="#{userRedirection.adminAllUsersPage()}"
+					style="font-size: 1.2em !important;">
+				</p:menuitem>
+
+			</p:submenu>
+
+
+			<p:submenu label="Create container" icon=" ui-icon-circlesmall-plus"
+				rendered="#{profileController.roleUser=='ROLE_ADMIN'}">
+
+				<p:menuitem value="Simple Container" icon=" ui-icon-pencil"
+					immediate="true"
+					action="#{userRedirection.adminCreateContainerPage()}"
+					style="font-size: 1.2em !important;">
+				</p:menuitem>
+				<p:menuitem value="Custom Container" icon=" ui-icon-gear" action="#{userRedirection.adminCreateCustomContainerPage()}"
+					immediate="true" style="font-size: 1.2em !important;">
+				</p:menuitem>
+
+			</p:submenu>
+			<p:submenu label="Containers" icon=" ui-icon-circlesmall-plus"
+				rendered="#{profileController.roleUser=='ROLE_ADMIN'}">
+				<p:menuitem value="My Simple Containers" icon="ui-icon-folder-open"
+					immediate="true" action="#{userRedirection.adminContainerPage()}" />
+				<p:menuitem value="All Simple Containers" icon="ui-icon-folder-open"
+					immediate="true"
+					action="#{userRedirection.adminAllContainerPage()}" />
+				
+				<p:menuitem value="My Cu.Containers" icon="ui-icon-folder-open"
+					immediate="true"
+					action="#{userRedirection.adminCustomContainerPage()}" />
+					<p:menuitem value="Manage Cu.Containers" icon="ui-icon-folder-open"
+					immediate="true"
+					action="#{userRedirection.adminManageCustomContainerPage()}" />
+			</p:submenu>
+			<p:submenu label=" My Containers" icon="ui-icon-folder-open"
+				rendered="#{profileController.roleUser=='ROLE_AGENT'}"
+				immediate="true">
+				<p:menuitem value="Simple Containers" icon="ui-icon-folder-open"
+					immediate="true" action="#{userRedirection.agentContainerPage()}" />
+				<p:menuitem value="Custom Containers" icon="ui-icon-folder-open"
+					immediate="true"
+					action="#{userRedirection.agentCustomContainerPage()}" />
+			</p:submenu>
+
+			<f:facet name="options">
+
+
+				<div id="search" style="display: block; text-align: end;">
+
+
+
+					<p:spacer width="50px" height="0px"></p:spacer>
+					<span style="cursor: pointer;"> <h:outputText
+							value=" Welcome :"
+							style="color: blue;font-size:  small;font-weight:  bold;" /> <p:spacer
+							width="3px" height="0px"></p:spacer> <h:outputText
+							value="  #{profileController.user.login} "
+							style="color: blue;font-size:  small;font-weight:  bold;" />
+					</span>
+
+
+
+
+
+					<p:spacer width="50px" height="0px">
+					</p:spacer>
+
+
+					<p:commandButton value="Logout"
+						actionListener="#{userRedirection.logout()}" icon="ui-icon-power"
+						immediate="true" />
+
+				</div>
+
+			</f:facet>
+
+
+
+		</p:menubar>
+
+
+	</h:form>
+
+</h:body>
+</html>

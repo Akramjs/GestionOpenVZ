@@ -1,0 +1,21 @@
+.ui-messages-info-summary, .ui-messages-warn-summary, .ui-messages-error-summary, .ui-messages-fatal-summary, .ui-message-info-summary, .ui-message-warn-summary, .ui-message-error-summary, .ui-message-fatal-summary {
+margin-left: 0px !important;
+font-weight: bold;
+color: rgb(17, 124, 211) !important;
+font-size: inherit !important;
+font-style: normal !important;
+font-family: monospace !important;
+}
+#wrapper h1 {
+font-size: 48px;
+color: rgb(6, 106, 117);
+padding: 2px 0 10px 0;
+font-family: 'FranchiseRegular', 'Arial Narrow', Arial, sans-serif;
+font-weight: bold;
+text-align: center;
+ padding-bottom: 10px !important;
+ }
+ .ui-widget-overlay {
+    filter:alpha(opacity=80) !important;  /* works in IE 7 */
+    opacity: 0.3 !important;  /* works in Firefox */
+}

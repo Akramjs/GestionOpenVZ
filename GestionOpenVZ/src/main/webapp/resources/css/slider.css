@@ -1,0 +1,6 @@
+.ui-panelgrid td {
+border-width: inherit;
+border-style: hidden;
+border-color: inherit;
+padding: 4px 10px;
+}
