@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * @author Mohamed
+ * @author Akram
  *
  */
 @Entity

@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * @author Mohamed
+ * @author Akram
  *
  */
 @Entity

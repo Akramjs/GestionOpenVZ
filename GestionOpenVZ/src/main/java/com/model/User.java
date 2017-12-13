@@ -18,7 +18,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 /**
- * @author Mohamed
+ * @author Akram
  *
  */
 @Table(name = "g_user")

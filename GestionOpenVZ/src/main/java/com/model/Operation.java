@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @author Mohamed
+ * @author Akram
  *
  */
 @Table(name = "g_operation")
